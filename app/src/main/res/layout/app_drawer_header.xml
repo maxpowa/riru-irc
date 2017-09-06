@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_header"
+    android:layout_width="320dp"
+    android:layout_height="180dp"
+    android:background="?attr/colorPrimaryDark"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/drawer_header_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/header_background" />
+
+    <LinearLayout
+        android:id="@+id/drawer_header_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/drawer_header_nickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/nav_header_server_host"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:paddingBottom="4dp"
+                    android:text="maxpowa"
+                    android:textColor="@color/colorForegroundIcon"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/drawer_header_server_host"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/nav_header_nickname"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignStart="@+id/nav_header_nickname"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="irc.esper.net:6667"
+                    android:textColor="@color/colorForegroundIcon"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/drawer_header_caret"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_weight="6"
+                android:tint="@color/colorForegroundIcon"
+                app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

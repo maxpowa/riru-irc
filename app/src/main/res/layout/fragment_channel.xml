@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="16sp"
+        android:typeface="normal" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.SearchResult.Subtitle"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="14sp"
+        android:typeface="normal" />
+</LinearLayout>

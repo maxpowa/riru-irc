@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_menu">
+    <group
+        android:id="@+id/drawer_menu_server"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_snooze_notifications"
+            android:checkable="false"
+            android:icon="@drawable/bell_off"
+            android:title="@string/drawer_snooze_notifications" />
+
+        <item
+            android:id="@+id/drawer_server_properties"
+            android:checkable="false"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/drawer_server_properties" />
+
+        <item
+            android:id="@+id/drawer_server_disconnect"
+            android:checkable="false"
+            android:icon="@drawable/server_off"
+            android:title="@string/drawer_server_disconnect" />
+
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_settings"
+            android:checkable="false"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/drawer_global_settings" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_exit_app"
+            android:layout_gravity="end"
+            android:checkable="false"
+            android:icon="@drawable/server_remove"
+            android:title="@string/drawer_exit_app" />
+    </group>
+</menu>

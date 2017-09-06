@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Shiro IRC Client</string>
+    <string name="action_settings">Settings</string>
+    <string name="fab_feature_discovery_title">Add a new connection</string>
+    <string name="fab_feature_discovery_description">Specify server host, port, and credentials to establish a connection.</string>
+
+    <string name="title_add_connection">Add new connection</string>
+
+    <string name="add_connection_server_label">Server Host</string>
+    <string name="add_connection_nick_label">Nickname</string>
+    <string name="add_connection_pass_label">Password (Optional)</string>
+    <string name="add_connection_invalid_host">Invalid server hostname</string>
+    <string name="add_connection_invalid_port">Invalid server port</string>
+    <string name="add_connection_save">Save</string>
+    <string name="add_connection_ipv6_hint">IPv6 servers should be specified using square braces: [bad:c0de::cafe]:6667</string>
+    <string name="pref_fab_discovery">FAB_DISCOVERED</string>
+    <string name="main_empty_text">Once a server connection is established, IRC channels will appear here.</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_snooze_notifications">Snooze Notifications</string>
+    <string name="drawer_server_disconnect">Disconnect</string>
+    <string name="drawer_server_properties">Server Properties</string>
+    <string name="drawer_global_settings">Global Settings</string>
+    <string name="drawer_global_section">Global</string>
+    <string name="drawer_exit_app">Quit</string>
+</resources>
