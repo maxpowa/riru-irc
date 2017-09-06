@@ -1,24 +1,19 @@
 package us.maxpowa.ircclient.activity
 
-import android.content.Context
 import android.graphics.PorterDuff
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.TextView
+import android.widget.*
 
 import java.net.URI
 import java.net.URISyntaxException
 
 import us.maxpowa.ircclient.R
 import us.maxpowa.ircclient.utils.TextValidator
-import android.widget.EditText
-import us.maxpowa.ircclient.connection.Host
+import us.maxpowa.ircclient.utils.CredentialStore
 
 
 class AddConnection : AppCompatActivity() {
@@ -28,6 +23,7 @@ class AddConnection : AppCompatActivity() {
         setContentView(R.layout.activity_add_connection)
 
         val hostField = findViewById(R.id.server) as AutoCompleteTextView
+        val sslToggle = findViewById(R.id.ssltoggle) as CheckBox
         hostField.addTextChangedListener(object : TextValidator(hostField) {
             override fun validate(textView: TextView, text: String) {
                 try {
@@ -45,6 +41,8 @@ class AddConnection : AppCompatActivity() {
 
                     if (uri.port > 25565 || uri.port == 0) {
                         textView.error = getText(R.string.add_connection_invalid_port)
+                    } else if (uri.port === 994 || uri.port === 6697) {
+                        sslToggle.isChecked = true
                     }
 
                 } catch (ex: URISyntaxException) {
@@ -52,6 +50,30 @@ class AddConnection : AppCompatActivity() {
                     textView.error = getText(R.string.add_connection_invalid_host)
                 }
             }
+        })
+
+        val nickField = findViewById(R.id.nickname) as EditText
+        nickField.addTextChangedListener(object : TextValidator(nickField) {
+            override fun validate(textView: TextView, text: String) {
+                var isValidNick = text.matches("""^[a-z_\-\[\]\\^{}|`][a-z0-9_\-\[\]\\^{}|`]{0,15}$""".toRegex(RegexOption.IGNORE_CASE))
+                if (!isValidNick) {
+                    textView.error = "Nick does not conform to RFC2812"
+                }
+            }
+        })
+
+        val altNicksField = findViewById(R.id.altNicks) as EditText
+        altNicksField.addTextChangedListener(object : TextValidator(altNicksField) {
+            override fun validate(textView: TextView, text: String) {
+                text.split(',').forEach { nick ->
+                    var isValidNick = nick.matches("""^[a-z_\-\[\]\\^{}|`][a-z0-9_\-\[\]\\^{}|`]{0,15}$""".toRegex(RegexOption.IGNORE_CASE))
+                    if (!isValidNick && nick.length > 0) {
+                        textView.error = "Alt. nick does not conform to RFC2812"
+                        return@forEach
+                    }
+                }
+            }
+
         })
 
         val hostAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayOf("chat.freenode.net", "chat.freenode.net:6697", "open.ircnet.net", "irc.quakenet.org", "irc.efnet.org", "irc.ipv6.efnet.org", "irc.undernet.org", "irc.rizon.net", "irc.oftc.net", "irc.oftc.net:6697", "irc.dal.net", "irc.esper.net", "na.irc.esper.net", "eu.irc.esper.net"))
@@ -76,9 +98,8 @@ class AddConnection : AppCompatActivity() {
         val hostField = findViewById(R.id.server) as AutoCompleteTextView
         val nickField = findViewById(R.id.nickname) as EditText
         val passwordField = findViewById(R.id.password) as EditText
-        val prefs = getSharedPreferences("connections", Context.MODE_PRIVATE)
 
-        //prefs.edit().putString()
+        CredentialStore.pushCredentials(this, hostField.text.toString(), nickField.text.toString(), passwordField.text.toString())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -89,7 +110,8 @@ class AddConnection : AppCompatActivity() {
 
 
         if (id == R.id.add_connection_save) {
-
+            saveCredentials()
+            onBackPressed()
             return true
         }
 

@@ -27,4 +27,6 @@
     <string name="drawer_global_settings">Global Settings</string>
     <string name="drawer_global_section">Global</string>
     <string name="drawer_exit_app">Quit</string>
+    <string name="add_connection_ssl_toggle">SSL</string>
+    <string name="add_connection_alt_nicks_label">Alt. nicknames (comma separated)</string>
 </resources>
