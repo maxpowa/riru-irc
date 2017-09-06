@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shiro IRC Client</string>
+    <string name="app_name">Riru IRC Client</string>
     <string name="action_settings">Settings</string>
     <string name="fab_feature_discovery_title">Add a new connection</string>
     <string name="fab_feature_discovery_description">Specify server host, port, and credentials to establish a connection.</string>
