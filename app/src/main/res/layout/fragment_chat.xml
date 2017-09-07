@@ -1,13 +1,56 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:attr="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     tools:context="us.maxpowa.ircclient.fragment.ChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/chatMessageContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <us.maxpowa.ircclient.components.ChatMessage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+
+        <us.maxpowa.ircclient.components.ChatMessage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+
+        <us.maxpowa.ircclient.components.ChatMessage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+
+        <us.maxpowa.ircclient.components.ChatMessage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+
+        <us.maxpowa.ircclient.components.ChatMessage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+
+        <us.maxpowa.ircclient.components.ChatMessage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+
+        <us.maxpowa.ircclient.components.ChatMessage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+
+        <us.maxpowa.ircclient.components.ChatMessage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+
+    </LinearLayout>
+</ScrollView>

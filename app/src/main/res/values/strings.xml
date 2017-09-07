@@ -13,8 +13,12 @@
     <string name="add_connection_invalid_port">Invalid server port</string>
     <string name="add_connection_save">Save</string>
     <string name="add_connection_ipv6_hint">IPv6 servers should be specified using square braces: [bad:c0de::cafe]:6667</string>
-    <string name="pref_fab_discovery">FAB_DISCOVERED</string>
+    <string name="add_connection_ssl_toggle">SSL</string>
+    <string name="add_connection_alt_nicks_label">Alt. nicknames (comma separated)</string>
+    <string name="add_connection_advanced_label">Advanced</string>
+
     <string name="main_empty_text">Once a server connection is established, IRC channels will appear here.</string>
+    <string name="pref_fab_discovery" translatable="false">FAB_DISCOVERED</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -27,7 +31,4 @@
     <string name="drawer_global_settings">Global Settings</string>
     <string name="drawer_global_section">Global</string>
     <string name="drawer_exit_app">Quit</string>
-    <string name="add_connection_ssl_toggle">SSL</string>
-    <string name="add_connection_alt_nicks_label">Alt. nicknames (comma separated)</string>
-    <string name="add_connection_advanced_label">Advanced</string>
 </resources>
