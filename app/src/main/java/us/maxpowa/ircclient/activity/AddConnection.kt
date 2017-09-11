@@ -1,19 +1,17 @@
 package us.maxpowa.ircclient.activity
 
 import android.graphics.PorterDuff
+import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
-
+import us.maxpowa.ircclient.R
+import us.maxpowa.ircclient.utils.CredentialStore
+import us.maxpowa.ircclient.utils.TextValidator
 import java.net.URI
 import java.net.URISyntaxException
-
-import us.maxpowa.ircclient.R
-import us.maxpowa.ircclient.utils.TextValidator
-import us.maxpowa.ircclient.utils.CredentialStore
 
 
 class AddConnection : AppCompatActivity() {
@@ -22,8 +20,8 @@ class AddConnection : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_connection)
 
-        val hostField = findViewById(R.id.server) as AutoCompleteTextView
-        val sslToggle = findViewById(R.id.ssltoggle) as CheckBox
+        val hostField = findViewById<AutoCompleteTextView>(R.id.server)
+        val sslToggle = findViewById<CheckBox>(R.id.ssltoggle)
         hostField.addTextChangedListener(object : TextValidator(hostField) {
             override fun validate(textView: TextView, text: String) {
                 try {
@@ -52,7 +50,7 @@ class AddConnection : AppCompatActivity() {
             }
         })
 
-        val nickField = findViewById(R.id.nickname) as EditText
+        val nickField = findViewById<EditText>(R.id.nickname)
         nickField.addTextChangedListener(object : TextValidator(nickField) {
             override fun validate(textView: TextView, text: String) {
                 var isValidNick = text.matches("""^[a-z_\-\[\]\\^{}|`][a-z0-9_\-\[\]\\^{}|`]{0,15}$""".toRegex(RegexOption.IGNORE_CASE))
@@ -62,7 +60,7 @@ class AddConnection : AppCompatActivity() {
             }
         })
 
-        val altNicksField = findViewById(R.id.altNicks) as EditText
+        val altNicksField = findViewById<EditText>(R.id.altNicks)
         altNicksField.addTextChangedListener(object : TextValidator(altNicksField) {
             override fun validate(textView: TextView, text: String) {
                 text.split(',').forEach { nick ->
@@ -94,12 +92,43 @@ class AddConnection : AppCompatActivity() {
         return true
     }
 
-    fun saveCredentials() {
-        val hostField = findViewById(R.id.server) as AutoCompleteTextView
-        val nickField = findViewById(R.id.nickname) as EditText
-        val passwordField = findViewById(R.id.password) as EditText
+    fun saveCredentials(): Boolean {
+        val hostField = findViewById<AutoCompleteTextView>(R.id.server)
+        if (hostField.error != null) {
+            hostField.requestFocus()
+            return false
+        }
+        val host = hostField.text.toString()
 
-        CredentialStore.pushCredentials(this, hostField.text.toString(), nickField.text.toString(), passwordField.text.toString())
+        val nickField = findViewById<EditText>(R.id.nickname)
+        if (nickField.error != null) {
+            nickField.requestFocus()
+            return false
+        }
+        val nick = nickField.text.toString()
+
+        val passwordField = findViewById<EditText>(R.id.password)
+        if (passwordField.error != null) {
+            passwordField.requestFocus()
+            return false
+        }
+        val password = passwordField.text.toString()
+
+        val altNicksField = findViewById<EditText>(R.id.altNicks)
+        if (altNicksField.error != null) {
+            altNicksField.requestFocus()
+            return false
+        }
+        val altNicks = altNicksField.text.split(',').mapNotNull { nick ->
+            var isValidNick = nick.matches("""^[a-z_\-\[\]\\^{}|`][a-z0-9_\-\[\]\\^{}|`]{0,15}$""".toRegex(RegexOption.IGNORE_CASE))
+            if (!isValidNick && nick.length > 0) {
+                return@mapNotNull nick
+            }
+            return@mapNotNull null
+        }
+
+        CredentialStore.pushCredentials(this, host, nick, altNicks, password)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -110,8 +139,10 @@ class AddConnection : AppCompatActivity() {
 
 
         if (id == R.id.add_connection_save) {
-            saveCredentials()
-            onBackPressed()
+            val result = saveCredentials()
+            if (result) {
+                onBackPressed()
+            }
             return true
         }
 

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="chat_message_attrs">
-        <attr name="message" format="string" localization="none" />
+    <declare-styleable name="ChatMessage">
+        <attr name="message" format="string" />
+        <attr name="sender" format="string" />
+        <attr name="timestamp" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawerServerListItem">
+        <attr  name="nick" format="string" />
+        <attr name="host" format="string" />
+        <attr name="status" format="enum" >
+            <enum name="DISCONNECTED" value="0"/>
+            <enum name="CONNECTING" value="1"/>
+            <enum name="CONNECTED" value="2"/>
+            <enum name="ERROR" value="3"/>
+        </attr>
     </declare-styleable>
 </resources>

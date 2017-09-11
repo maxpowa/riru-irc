@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
     tools:context="us.maxpowa.ircclient.fragment.ChatFragment">
 
     <LinearLayout
@@ -15,42 +14,23 @@
         <us.maxpowa.ircclient.components.ChatMessage
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+            attr:message="A very sweg message thats long enough to wrap at least once and then maybe twice if we're lucky. P.S. RX14 is a shit"
+            attr:sender="maxpowa"
+            attr:timestamp="2017-09-09T17:00:00.000Z"></us.maxpowa.ircclient.components.ChatMessage>
 
         <us.maxpowa.ircclient.components.ChatMessage
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+            attr:message="A very sweg message thats long enough to wrap at least once and then maybe twice if we're lucky. P.S. RX14 is a shit"
+            attr:sender="vexatoast"
+            attr:timestamp="2017-09-09T17:00:00.000Z"></us.maxpowa.ircclient.components.ChatMessage>
 
         <us.maxpowa.ircclient.components.ChatMessage
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
-
-        <us.maxpowa.ircclient.components.ChatMessage
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
-
-        <us.maxpowa.ircclient.components.ChatMessage
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
-
-        <us.maxpowa.ircclient.components.ChatMessage
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
-
-        <us.maxpowa.ircclient.components.ChatMessage
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
-
-        <us.maxpowa.ircclient.components.ChatMessage
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            attr:message="TEST MESSAGE HELLO"></us.maxpowa.ircclient.components.ChatMessage>
+            attr:message="A very sweg message thats long enough to wrap at least once and then maybe twice if we're lucky. P.S. RX14 is a shit"
+            attr:sender="maxpowa"
+            attr:timestamp="2017-09-09T17:00:00.000Z"></us.maxpowa.ircclient.components.ChatMessage>
 
     </LinearLayout>
 </ScrollView>

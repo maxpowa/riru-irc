@@ -18,13 +18,14 @@
     <string name="add_connection_advanced_label">Advanced</string>
 
     <string name="main_empty_text">Once a server connection is established, IRC channels will appear here.</string>
+    <string name="main_connecting">Connecting to %1$s as %2$s, please wait…</string>
+
     <string name="pref_fab_discovery" translatable="false">FAB_DISCOVERED</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_background_description">Navigation drawer background image</string>
     <string name="drawer_snooze_notifications">Snooze Notifications</string>
     <string name="drawer_server_disconnect">Disconnect</string>
     <string name="drawer_server_properties">Server Properties</string>

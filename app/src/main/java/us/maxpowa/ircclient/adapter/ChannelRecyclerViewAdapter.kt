@@ -43,8 +43,8 @@ class ChannelRecyclerViewAdapter(private val mValues: List<DummyItem>, private v
         var mItem: DummyItem? = null
 
         init {
-            mIdView = mView.findViewById(R.id.id) as TextView
-            mContentView = mView.findViewById(R.id.content) as TextView
+            mIdView = mView.findViewById<TextView>(R.id.id)
+            mContentView = mView.findViewById<TextView>(R.id.content)
         }
 
         override fun toString(): String {

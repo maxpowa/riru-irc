@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:name="us.maxpowa.ircclient.fragment.PlaceholderFragment"
+    tools:context="us.maxpowa.ircclient.fragment.PlaceholderFragment">
 
     <TextView
+        android:drawableTop="@drawable/server_network"
+        android:drawablePadding="14dp"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:text="@string/main_empty_text"
@@ -18,16 +23,4 @@
         android:gravity="center"
         android:id="@+id/textView" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/server_network" />
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
